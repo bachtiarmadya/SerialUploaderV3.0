@@ -101,6 +101,7 @@ public class SerialUploadedController {
                 serialData.setGrossDeliverUom(rs.getString("gross_deliver_uom"));
                 serialData.setAvgFlowRate(rs.getString("avg_flow_rate"));
                 serialData.setAvgFlowRateUom(rs.getString("avg_flow_rate_uom"));
+                serialData.setAfterAvgFlowRate(rs.getString("after_avg_flow_rate"));
                 serialData.setSaleNumber(rs.getString("sale_number"));
                 serialData.setMeterNumber(rs.getString("meter_number"));
                 serialData.setUnitId(rs.getString("unit_id"));
@@ -190,4 +191,62 @@ public class SerialUploadedController {
         }
     }
 
+//    public void bindUpload(Long id, SerialDataUploaded input) throws IOException {
+//        // form parameters
+//        SiteConfiguration site = new SiteConfiguration();
+//        String siteId = site.gettingSiteName();
+//
+//        RequestBody formBody = new FormBody.Builder()
+//                .add("site-id", siteId)
+//                .add("start-id", input.getIDstart().toString())
+//                .add("end-id", input.getIDend().toString())
+//                .add("data-state", input.getDataState())
+//                .add("ticket-no", input.getTicketNo())
+//                .add("start", input.getStart())
+//                .add("finish", input.getFinish())
+//                .add("start-count", input.getStartCount())
+//                .add("start-count-uom", input.getStartCountUom())
+//                .add("end-count", input.getEndCount())
+//                .add("end-count-uom", input.getEndCountUom())
+//                .add("gross-deliver", input.getGrossDeliver())
+//                .add("gross-deliver-uom", input.getGrossDeliverUom())
+//                .add("avg-flow-rate", input.getAvgFlowRate())
+//                .add("avg-flow-rate-uom", input.getAvgFlowRateUom())
+//                .add("after-avg-flow-rate", input.getAfterAvgFlowRate())
+//                .add("sale-number", input.getSaleNumber())
+//                .add("meter-numbe", input.getMeterNumber())
+//                .add("unit-id", input.getUnitId())
+//                .add("duplicate", input.getDuplicate())
+//                .add("other-one", input.getOtherOne())
+//                .add("other-two", input.getOtherTwo())
+//                .add("other-three", input.getOtherThree())
+//                .add("other-four", input.getOtherFour())
+//                .add("other-five", input.getOtherFive())
+//                .build();
+//
+//        Request request = new Request.Builder()
+//                .url("http://localhost:8080/rest/station/deliveries")
+//                .post(formBody)
+//                .addHeader("Content-Type", "application/json")
+//                .build();
+//
+//        try (Response response = httpClient.newCall(request).execute()) {
+//
+//            if (response.isSuccessful()) {
+//                if (response.code() == 200) {
+//                    System.out.println(response.body().string());
+//                    SerialFlagController controller = new SerialFlagController();
+//                    controller.flagUploaded(id);
+//                }
+//            } else {
+//                throw new IOException("Unexpected code " + response);
+//            }
+//            // Get response body
+//            //System.out.println(response.body().string());
+//        } catch (IOException ex) {
+//            Logger.getLogger(SerialUploadedController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(SerialUploadedController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 }

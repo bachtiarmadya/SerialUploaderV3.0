@@ -35,7 +35,7 @@ public class Runner implements Runnable {
 
         task.run();
         int initialDelay = 4;
-        int periodicDelay = 10;
+        int periodicDelay = 1;
 
         scheduler.scheduleAtFixedRate(task, initialDelay, periodicDelay,
                 TimeUnit.SECONDS);

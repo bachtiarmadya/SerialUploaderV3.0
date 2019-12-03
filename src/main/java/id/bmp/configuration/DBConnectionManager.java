@@ -13,5 +13,5 @@ public class DBConnectionManager {
 
     public static final String MYSQL_UNAME = "ttys";
     public static final String MYSQL_PASSWORD = "V1m@n@l0gy";
-    public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/ttys?zeroDateTimeBehavior=convertToNull";
+    public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/ttys";
 }

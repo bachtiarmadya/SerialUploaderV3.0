@@ -5,6 +5,8 @@
  */
 package id.bmp.app;
 
+import java.util.Scanner;
+
 /**
  *
  * @author permadi
@@ -13,14 +15,22 @@ public class test {
 
     public static void main(String[] args) {
 
-        boolean isDivisible;
-        int value = 0;
-        for (int i = 2; i < value; i++) {
-            if (value % i == 0) {
-                isDivisible = true;
-                System.out.println(value + " is divisible");
-                break;//loop break when divisible
-            }
+        //System Objects
+        Scanner keyboard = new Scanner(System.in);
+
+        //Variables
+        String Married;
+        System.out.print("My name :\t");
+        String name = keyboard.nextLine();
+
+        System.out.print("Will you merry me, " + name + "? (yes or no) : ");
+        Married = keyboard.next();
+        if (Married.equalsIgnoreCase("yes")) {
+            System.out.print("Then I shall call you my wife.");
+        }
+        else
+        {
+            System.out.print("Fuck you laa..");
         }
 
     }

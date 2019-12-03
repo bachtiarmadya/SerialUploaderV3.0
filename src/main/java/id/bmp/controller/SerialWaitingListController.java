@@ -41,32 +41,123 @@ public class SerialWaitingListController {
             conn = DriverManager.getConnection(DBConnectionManager.MYSQL_URL, DBConnectionManager.MYSQL_UNAME, DBConnectionManager.MYSQL_PASSWORD);
 
             FlowmeterConfiguration config = new FlowmeterConfiguration();
-
             PreparedStatement insertQueue = conn.prepareStatement(query);
+
             insertQueue.setLong(1, input.getStartId());
             insertQueue.setLong(2, input.getEndId());
-            insertQueue.setString(3, input.getTicketNumber());
-            insertQueue.setString(4, input.getStart());
-            insertQueue.setString(5, input.getFinish());
-            insertQueue.setString(6, input.getStartCount());
-            insertQueue.setString(7, input.getStartCountUom());
-            insertQueue.setString(8, input.getEndCount());
-            insertQueue.setString(9, input.getEndCountUom());
-            insertQueue.setString(10, input.getGrossDeliver());
-            insertQueue.setString(11, input.getGrossDeliverUom());
-            insertQueue.setString(12, input.getAvgFlowRate());
-            insertQueue.setString(13, input.getAvgFlowRateUom());
-            insertQueue.setString(14, input.getAfterAvgFlowRate());
-            insertQueue.setString(15, input.getSaleNumber());
-            insertQueue.setString(16, input.getMeterNumber());
-            insertQueue.setString(17, input.getUnitId());
-            insertQueue.setString(18, input.getDuplicate());
+            if (input.getTicketNumber() != null) {
+                insertQueue.setString(3, input.getTicketNumber());
+            } else {
+                insertQueue.setString(3, "");
+            }
+            if (input.getStart() != null) {
+                insertQueue.setString(4, input.getStart());
+
+            } else {
+                insertQueue.setString(4, "");
+            }
+            if (input.getFinish() != null) {
+                insertQueue.setString(5, input.getFinish());
+
+            } else {
+                insertQueue.setString(5, "");
+            }
+            if (input.getStartCount() != null) {
+                insertQueue.setString(6, input.getStartCount());
+
+            } else {
+                insertQueue.setString(6, "");
+            }
+            if (input.getStartCountUom() != null) {
+                insertQueue.setString(7, input.getStartCountUom());
+            } else {
+                insertQueue.setString(7, "");
+            }
+            if (input.getEndCount() != null) {
+                insertQueue.setString(8, input.getEndCount());
+            } else {
+                insertQueue.setString(8, "");
+            }
+            if (input.getEndCountUom() != null) {
+                insertQueue.setString(9, input.getEndCountUom());
+            } else {
+                insertQueue.setString(9, "");
+            }
+            if (input.getGrossDeliver() != null) {
+                insertQueue.setString(10, input.getGrossDeliver());
+            } else {
+                insertQueue.setString(10, "");
+            }
+            if (input.getGrossDeliverUom() != null) {
+                insertQueue.setString(11, input.getGrossDeliverUom());
+            } else {
+                insertQueue.setString(11, "");
+            }
+            if (input.getAvgFlowRate() != null) {
+                insertQueue.setString(12, input.getAvgFlowRate());
+            } else {
+                insertQueue.setString(12, "");
+            }
+            if (input.getAvgFlowRateUom() != null) {
+                insertQueue.setString(13, input.getAvgFlowRateUom());
+            } else {
+                insertQueue.setString(13, "");
+            }
+            if (input.getAfterAvgFlowRate() != null) {
+                insertQueue.setString(14, input.getAfterAvgFlowRate());
+            } else {
+                insertQueue.setString(14, "");
+            }
+            if (input.getSaleNumber() != null) {
+                insertQueue.setString(15, input.getSaleNumber());
+            } else {
+                insertQueue.setString(15, "");
+            }
+            if (input.getMeterNumber() != null) {
+                insertQueue.setString(16, input.getMeterNumber());
+            } else {
+                insertQueue.setString(16, "");
+            }
+            if (input.getUnitId() != null) {
+                insertQueue.setString(17, input.getUnitId());
+            } else {
+                insertQueue.setString(17, "");
+            }
+            if (input.getDuplicate() != null) {
+                insertQueue.setString(18, input.getDuplicate());
+            } else {
+                insertQueue.setString(18, "");
+            }
+
             insertQueue.setString(19, config.setFlowmeter());
-            insertQueue.setString(20, input.getOtherTwo());
-            insertQueue.setString(21, input.getOtherThree());
-            insertQueue.setString(22, input.getOtherFour());
-            insertQueue.setString(23, input.getOtherFive());
-            insertQueue.setString(24, input.getDataState());
+
+            if (input.getOtherTwo() != null) {
+                insertQueue.setString(20, input.getOtherTwo());
+            } else {
+                insertQueue.setString(20, "");
+            }
+            if (input.getOtherThree() != null) {
+                insertQueue.setString(21, input.getOtherThree());
+            } else {
+                insertQueue.setString(21, "");
+            }
+            if (input.getOtherFour() != null) {
+                insertQueue.setString(22, input.getOtherFour());
+            } else {
+                insertQueue.setString(22, "");
+            }
+            if (input.getOtherFive() != null) {
+
+                insertQueue.setString(23, input.getOtherFive());
+            } else {
+                insertQueue.setString(23, "");
+            }
+            if (input.getDataState() != null) {
+
+                insertQueue.setString(24, input.getDataState());
+            } else {
+                insertQueue.setString(24, "");
+            }
 
             insertQueue.executeUpdate();
             System.out.println("Bind to waiting list");
